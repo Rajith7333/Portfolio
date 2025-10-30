@@ -316,11 +316,11 @@
       <h2>About Me</h2>
       <div class="about-wrapper">
         <div class="profile-photo">
-          <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile Photo">
+          <img src="pp.webp" alt="Profile Photo">
         </div>
         <div class="about-text">
-          <p>Hi, I’m Rajith, a Computer Science Engineering student passionate about technology, creativity, and problem-solving.
-          I work on Python development, full-stack web projects, and UI/UX design, creating practical and engaging digital experiences.
+          <p>Hi, I’m Rajith, a Computer Science Engineering student passionate about technology, creativity, and problem-solving.<br>
+          I work on Python development, full-stack web projects, and UI/UX design, creating practical and engaging digital experiences.<br>
           Driven by teamwork, leadership, and adaptability, I aim to learn continuously and build projects that make an impact.</p>
 
           <div class="about-grid">
@@ -377,7 +377,7 @@
 
           <!-- Duplicate for smooth scroll -->
           <div class="project-card" onclick="openModal('recipe')">Recipe Sharing Platform</div>
-          <div class="project-card" onclick="openModal('soil')">Soil Nutrient Analysis</div>
+          <div class="project-card" onclick="openModal('soil')">Soil Nutrient Analyser</div>
           <div class="project-card" onclick="openModal('crm')">CRM for Mall Management</div>
           <div class="project-card" onclick="openModal('air')">Air Pollution Monitoring</div>
         </div>
@@ -410,7 +410,7 @@
   <div id="soil" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal('soil')">&times;</span>
-      <img src="npk.jpg" alt="Soil Nutrient Analysis">
+      <img src="npk.jpg" alt="Soil Nutrient Analyser">
       <h3>Soil Nutrient Analysis Using NPK Sensor</h3>
       <p>Arduino-based IoT system that measures soil nutrients and connects with a mobile app for real-time insights.</p>
     </div>
@@ -450,4 +450,5 @@
     window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; };
   </script>
 </body>
+
 </html>
