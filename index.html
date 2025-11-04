@@ -254,12 +254,18 @@
     }
 
     .project-card {
-      flex: 0 0 min(90vw, 500px);
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
-      padding: 60px;
-    }
+  flex: 0 0 min(90vw, 500px);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  padding: 80px 60px; /* More padding = taller cards */
+  min-height: 350px;  /* Makes them vertically longer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 
     .modal {
       display: none;
@@ -337,6 +343,29 @@
       .about-wrapper { flex-direction: column; text-align: center; }
       .about-grid { grid-template-columns: 1fr; }
     }
+    .project-details {
+  text-align: left;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.project-details h4 {
+  color: var(--accent);
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.project-details ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.project-details p {
+  margin: 5px 0 10px;
+}
+
   </style>
 </head>
 
@@ -443,32 +472,87 @@
   <footer>&copy; 2025 Rajith Raj M. All rights reserved.</footer>
 
   <!-- PROJECT MODALS -->
-  <div id="recipe" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('recipe')">&times;</span>
-      <img src="rsp.png" alt="Recipe Sharing Platform screenshot" loading="lazy">
-      <h3>Recipe Sharing Platform</h3>
-      <p>Full-stack app allowing users to share and browse recipes with CRUD functionality and MongoDB storage.</p>
-    </div>
-  </div>
+<!-- SOIL NUTRIENT ANALYZER -->
+<div id="soil" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('soil')">&times;</span>
+    <img src="npk.jpg" alt="Soil Nutrient Analyzer" loading="lazy" style="width:100%; border-radius:10px; margin-bottom:20px;">
+    <h3>SOIL NUTRIENT ANALYZER</h3>
+    <div class="project-details">
+      <h4>OVERVIEW:</h4>
+      <p>A real-time data analyzer that checks soil nutrient levels (Nitrogen, Phosphorus, Potassium) and helps farmers make data-driven decisions.</p>
 
-  <div id="soil" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('soil')">&times;</span>
-      <img src="npk.jpg" alt="Soil Nutrient Analyser" loading="lazy">
-      <h3>Soil Nutrient Analysis Using NPK Sensor</h3>
-      <p>Arduino-based IoT system that measures soil nutrients and connects with a mobile app for real-time insights.</p>
-    </div>
-  </div>
+      <h4>TECH STACK:</h4>
+      <p>Arduino, C/C++, NFC Sensor, HC-06 module, Bluetooth App.</p>
 
-  <div id="crm" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('crm')">&times;</span>
-      <img src="crm.jpg" alt="CRM Application" loading="lazy">
-      <h3>CRM Application for Mall Management</h3>
-      <p>Developed a CRM web app to manage customer interactions and generate analytics reports.</p>
+      <h4>IMPACT:</h4>
+      <p>Achieved hardware and software integration skills, promoted sustainable farming practices using technology.</p>
+
+      <h4>KEY FEATURES:</h4>
+      <ul>
+        <li>Automatic nutrient detection using NFC sensor</li>
+        <li>Real-time data collection and monitoring</li>
+        <li>Integrated with a mobile/web app for farmer access</li>
+        <li>Soil moisture measurement to detect over-irrigation</li>
+      </ul>
     </div>
   </div>
+</div>
+
+<!-- RECIPE SHARING PLATFORM -->
+<div id="recipe" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('recipe')">&times;</span>
+    <img src="rsp.png" alt="Recipe Sharing Platform screenshot" loading="lazy" style="width:100%; border-radius:10px; margin-bottom:20px;">
+    <h3>RECIPE SHARING PLATFORM</h3>
+    <div class="project-details">
+      <h4>OVERVIEW:</h4>
+      <p>A full-stack web application that enables users to share, explore, and comment on recipes in an interactive community-driven ecosystem.</p>
+
+      <h4>TECH STACK:</h4>
+      <p>React.js, Node.js, Express.js, MongoDB, HTML, CSS, JavaScript</p>
+
+      <h4>IMPACT:</h4>
+      <p>Enhanced understanding of full-stack architecture, state management, and API integration. Demonstrated scalable app design and deployment skills.</p>
+
+      <h4>KEY FEATURES:</h4>
+      <ul>
+        <li>User authentication and authorization using JWT</li>
+        <li>Recipe creation, editing, and deletion (CRUD operations)</li>
+        <li>Responsive UI built with React</li>
+        <li>NoSQL schema and data storage using MongoDB</li>
+        <li>Comment and review system for community interaction</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CRM FOR MALL MANAGEMENT -->
+<div id="crm" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('crm')">&times;</span>
+    <img src="crm.jpg" alt="CRM Application" loading="lazy" style="width:100%; border-radius:10px; margin-bottom:20px;">
+    <h3>CRM FOR MALL MANAGEMENT</h3>
+    <div class="project-details">
+      <h4>OVERVIEW:</h4>
+      <p>Implemented a Customer Relationship Management (CRM) system to track and enhance customer engagement, track store performance, and streamline mall operations.</p>
+
+      <h4>TECH STACK / TOOLS:</h4>
+      <p>Salesforce Platform, Apex, Lightning App Builder, Process Builder, Flow, SOQL, Custom Objects, Reports & Dashboards.</p>
+
+      <h4>IMPACT:</h4>
+      <p>Achieved key proficiency and improved data visibility, enhancing end-user operation and customer engagement efficiency.</p>
+
+      <h4>KEY FEATURES:</h4>
+      <ul>
+        <li>Custom Objects and Fields: Created for tenants, customers, and promotions</li>
+        <li>Process Automation: Implemented automation using Process Builder, Flow, and Validation Rules to improve data accuracy</li>
+        <li>Dashboard & Reports: Designed custom dashboards and report charts for data-driven decision-making</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 
   <div id="air" class="modal">
     <div class="modal-content">
