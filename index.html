@@ -7,6 +7,8 @@
   <meta name="keywords" content="Rajith Raj M, Portfolio, Full Stack Developer, Python, MERN, AI, Machine Learning, Web Developer">
   <meta name="author" content="Rajith Raj M">
   <title>Rajith Raj M | Portfolio</title>
+  <!-- Favicon -->
+<link rel="icon" type="image/png" href="favi.png">
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -304,31 +306,41 @@
 
 
     .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background: var(--modal-bg);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--modal-bg);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto; /* allow scrolling if content too tall */
+}
 
-    .modal-content {
-      background: #141c2b;
-      color: var(--text-light);
-      border-radius: 15px;
-      padding: 25px;
-      max-width: 700px;
-      width: 90%;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 0 20px rgba(209, 123, 255, 0.3);
-    }
+.modal-content {
+  background: #141c2b;
+  color: var(--text-light);
+  border-radius: 15px;
+  padding: 25px 30px;
+  max-width: 700px;
+  width: 90%;
+  box-shadow: 0 0 25px rgba(209, 123, 255, 0.25);
+  transform: scale(0.85); /* initial small scale */
+  opacity: 0;
+  transition: all 0.3s ease; /* smooth zoom + fade */
+  position: relative;
+  margin: 40px 0; /* add breathing space for smaller screens */
+}
+
+/* when modal is active, zoom in */
+.modal.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
 
     .close {
       position: absolute;
@@ -401,6 +413,79 @@
 .project-details p {
   margin: 5px 0 10px;
 }
+
+/* ==== Consistent Modal Design for All Projects ==== */
+.modal-content img {
+  width: 100%;
+  height: 260px; /* consistent image height */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(209, 123, 255, 0.3);
+}
+
+.modal-content h3 {
+  color: var(--accent);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+.modal-content .project-details {
+  text-align: left;
+  margin-top: 10px;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.modal-content .project-details h4 {
+  color: var(--accent);
+  margin-top: 18px;
+  margin-bottom: 5px;
+  font-size: 1.05rem;
+  border-left: 3px solid var(--accent);
+  padding-left: 8px;
+}
+
+.modal-content .project-details ul {
+  list-style-type: disc;
+  margin-left: 25px;
+  margin-top: 5px;
+}
+
+.modal-content .project-details p {
+  margin: 6px 0 10px;
+}
+
+/* Center modal layout improvements */
+.modal-content {
+  max-width: 700px;
+  width: 90%;
+  padding: 25px 30px;
+  background: #141c2b;
+  border-radius: 15px;
+  color: var(--text-light);
+  box-shadow: 0 0 25px rgba(209, 123, 255, 0.25);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--accent);
+  transition: transform 0.3s;
+}
+
+.close:hover {
+  transform: rotate(90deg);
+  color: #fff;
+}
+
 
   </style>
 </head>
@@ -590,14 +675,34 @@
 </div>
 
 
-  <div id="air" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('air')">&times;</span>
-      <img src="apm.png" alt="Air Pollution Monitoring" loading="lazy">
-      <h3>Air Pollution Monitoring using Remote Sensing</h3>
-      <p>Developing a system to monitor and analyze air pollution levels using satellite data and remote sensing technologies.</p>
+  <!-- AIR POLLUTION MONITORING -->
+<div id="air" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('air')">&times;</span>
+    <img src="apm.png" alt="Air Pollution Monitoring" loading="lazy" style="width:100%; border-radius:10px; margin-bottom:20px;">
+    <h3>AIR POLLUTION MONITORING USING REMOTE SENSING</h3>
+    <div class="project-details">
+      <h4>OVERVIEW:</h4>
+      <p>A smart environmental monitoring system that uses IoT sensors and satellite data to analyze and visualize air quality levels in real-time.</p>
+
+      <h4>TECH STACK:</h4>
+      <p>Arduino, NodeMCU, IoT Sensors (MQ-135), Python, ThingSpeak API, Matplotlib, Remote Sensing Data</p>
+
+      <h4>IMPACT:</h4>
+      <p>Enabled real-time air quality detection, improved understanding of environmental IoT systems, and promoted awareness of pollution control through data visualization.</p>
+
+      <h4>KEY FEATURES:</h4>
+      <ul>
+        <li>Measures air pollutants such as CO₂, NO₂, and SO₂</li>
+        <li>Uses ThingSpeak API for cloud-based live monitoring</li>
+        <li>Data visualization with Python-based dashboards</li>
+        <li>Remote sensing satellite data integration for broader coverage</li>
+        <li>Alert system for critical AQI levels</li>
+      </ul>
     </div>
   </div>
+</div>
+
 
   <script>
     // Section animation
@@ -613,6 +718,26 @@
     function openModal(id) { document.getElementById(id).style.display = 'flex'; }
     function closeModal(id) { document.getElementById(id).style.display = 'none'; }
     window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; };
+
+    function openModal(id) {
+  const modal = document.getElementById(id);
+  modal.style.display = 'flex';
+  setTimeout(() => modal.classList.add('show'), 10); // trigger animation
+}
+
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  modal.classList.remove('show');
+  setTimeout(() => { modal.style.display = 'none'; }, 300); // wait for animation
+}
+
+window.onclick = e => {
+  if (e.target.classList.contains('modal')) {
+    e.target.classList.remove('show');
+    setTimeout(() => { e.target.style.display = 'none'; }, 300);
+  }
+};
+
   </script>
 </body>
 </html>
