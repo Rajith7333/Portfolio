@@ -228,6 +228,39 @@
       animation: pulseGlow 1.2s infinite alternate;
     }
 
+    .skill-container {
+  width: 90%;
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+.skill {
+  margin-bottom: 1.5rem;
+}
+
+.skill p {
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.bar {
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 10px;
+}
+
+.progress {
+  background: linear-gradient(90deg, #b26fff, #7a4edb);
+  height: 100%;
+  width: 0; /* starts at 0 */
+  border-radius: 8px;
+  transition: width 1.5s ease;
+  background: linear-gradient(90deg, #b26fff, #7a4edb);
+  box-shadow: 0 0 10px rgba(180, 122, 255, 0.5)
+
+}
     .bar {
   width: 100%;
   background: #1c1f2e;
@@ -437,6 +470,61 @@
       .about-wrapper { flex-direction: column; text-align: center; }
       .about-grid { grid-template-columns: 1fr; }
     }
+html {
+  scroll-behavior: smooth;
+}
+
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.experience-card {
+  background: var(--gradient);
+  color: var(--text-light);
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(209, 123, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(209, 123, 255, 0.6);
+}
+
+.experience-card h3 {
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.experience-card h4 {
+  color: var(--accent);
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.experience-card .duration {
+  font-style: italic;
+  color: #bfbfbf;
+  margin-bottom: 10px;
+}
+
+.experience-card .impact {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.accent {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+
+    
   </style>
 
 </head>
@@ -496,30 +584,32 @@
         <div class="skill-card">Tools & Platforms<br><small>VS Code, GitHub</small></div>
         <div class="skill-card">Certifications<br><small>Python, AI/ML, Web Dev, Networking, Cyber Security</small></div>
       </div>
-      <div class="skill">
-  <p>Python</p>
-  <div class="bar"><div class="progress" style="width: 80%"></div>
-</div>
 
-<div class="skill">
-  <p>HTML, CSS</p>
-  <div class="bar"><div class="progress" style="width: 95%"></div>
-</div>
-
-<div class="skill">
-  <p>JavaScript</p>
-  <div class="bar"><div class="progress" style="width: 75%"></div>
-</div>
-
-<div class="skill">
-  <p>React</p>
-  <div class="bar"><div class="progress" style="width: 70%"></div>
-</div>
-
-<div class="skill">
-  <p>Figma</p>
-  <div class="bar"><div class="progress" style="width: 50%"></div>
-</div>
+    <section id="skills" class="skills">
+  <h2>Skills</h2>
+  <div class="skill-container">
+    <div class="skill">
+      <p>Python</p>
+      <div class="bar"><div class="progress" data-width="90%"></div></div>
+    </div>
+    <div class="skill">
+      <p>HTML / CSS / JS</p>
+      <div class="bar"><div class="progress" data-width="85%"></div></div>
+    </div>
+    <div class="skill">
+      <p>React</p>
+      <div class="bar"><div class="progress" data-width="75%"></div></div>
+    </div>
+    <div class="skill">
+      <p>Node.js</p>
+      <div class="bar"><div class="progress" data-width="70%"></div></div>
+    </div>
+    <div class="skill">
+      <p>AI / ML</p>
+      <div class="bar"><div class="progress" data-width="65%"></div></div>
+    </div>
+  </div>
+</section>
 
 </div>
 
@@ -527,21 +617,69 @@
 
 
     <!-- EXPERIENCE -->
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="experience-item">
-        <h3>Python Full Stack Web Development Intern - VEI Technologies</h3>
-        <p>Worked on developing and maintaining web applications using Python backend and responsive frontend technologies.</p>
-      </div>
-      <div class="experience-item">
-        <h3>MERN Stack Web Development Intern - Edunet Foundations</h3>
-        <p>Developed full-stack web applications using MongoDB, Express.js, React.js, and Node.js. Implemented authentication and API integration.</p>
-      </div>
-    </section>
+<section id="experience" class="section">
+  <h2 class="section-title">EXPERIENCE</h2>
+
+  <div class="experience-container">
+
+    <!-- Python Full Stack Web Development Intern -->
+    <div class="experience-card">
+      <h3>PYTHON FULL STACK WEB DEVELOPMENT INTERN — <span class="accent">VEI Technologies</span></h3>
+      <p class="duration">Duration: 1 Month</p>
+
+      <p class="context">
+        At VEI Technologies, I contributed to full-stack web application development using Python as the primary backend language. I worked on building dynamic, responsive web pages and integrating APIs with Flask/Django frameworks.
+      </p>
+
+      <h4>Key Contributions:</h4>
+      <ul>
+        <li>Developed and maintained backend modules for real-world applications using Python.</li>
+        <li>Designed interactive, responsive frontends using HTML, CSS, and JavaScript.</li>
+        <li>Collaborated in an Agile environment with version control via GitHub.</li>
+        <li>Enhanced debugging and RESTful API handling skills through hands-on implementation.</li>
+      </ul>
+
+      <p class="impact">
+        <strong>Impact:</strong> Strengthened understanding of backend logic and scalable design, gaining real-world experience in end-to-end software development.
+      </p>
+    </div>
+
+    <!-- MERN Stack Web Development Intern -->
+    <div class="experience-card">
+      <h3>MERN STACK WEB DEVELOPMENT INTERN — <span class="accent">Edunet Foundation</span></h3>
+      <p class="duration">Duration: 1 Month (IBM SkillsBuild Program)</p>
+
+      <p class="context">
+        During this internship, I developed full-stack applications using the MERN stack (MongoDB, Express.js, React.js, Node.js). The focus was on understanding API-based data handling and implementing authentication features.
+      </p>
+
+      <h4>Key Contributions:</h4>
+      <ul>
+        <li>Built CRUD-based web apps integrating both frontend (React) and backend (Node + Express).</li>
+        <li>Implemented JWT-based user authentication and secure route handling.</li>
+        <li>Deployed sample applications on cloud platforms for demonstration.</li>
+        <li>Collaborated on code reviews and learned practical debugging workflows.</li>
+      </ul>
+
+      <p class="impact">
+        <strong>Impact:</strong> Enhanced hands-on experience with the MERN stack and improved problem-solving abilities in full-stack development scenarios.
+      </p>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- PROJECTS -->
     <section id="projects">
       <h2>Projects</h2>
+
+  <p class="section-context">
+    A collection of my academic and personal projects that showcase my skills in full-stack development, IoT integration, and creative problem-solving. Each project reflects my growth in building real-world solutions using modern technologies.
+  </p>
+  <!-- your project cards here -->
+</section>
+
       <div class="project-slider">
         <div class="slider-track">
           <div class="project-card" onclick="openModal('recipe')">Recipe Sharing Platform</div>
@@ -557,10 +695,13 @@
         </div>
       </div>
     </section>
+    <br>
   </div>
 
   <!-- SOCIAL BAR -->
   <div id="social-bar" class="social-bar">
+    <h3>Get in Touch</h3>
+<p>I’m always open to new opportunities, tech discussions, or project collaborations. Let’s build something amazing together!</p>
     <div class="social-icons">
       <a href="https://in.linkedin.com/in/rajith-raj-639b16358" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/Rajith7333" target="_blank"><i class="fab fa-github"></i></a>
@@ -688,6 +829,23 @@
 
     
     // Section scroll animation
+    // Animate skill bars when they scroll into view
+const skillBars = document.querySelectorAll('.progress');
+
+const animateSkills = () => {
+  skillBars.forEach(bar => {
+    const rect = bar.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom >= 0;
+    if (inView && !bar.classList.contains('animated')) {
+      bar.style.width = bar.dataset.width;
+      bar.classList.add('animated');
+    }
+  });
+};
+
+window.addEventListener('scroll', animateSkills);
+window.addEventListener('load', animateSkills);
+
     const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('nav a');
 
@@ -745,6 +903,26 @@ window.addEventListener('scroll', () => {
         }, 350);
       }
     };
+    // ===== SMOOTH SCROLL ANIMATION =====
+const navHeight = document.querySelector('nav').offsetHeight;
+const navLinksSmooth = document.querySelectorAll('nav a');
+
+navLinksSmooth.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
+
+    if (targetSection) {
+      const targetPosition = targetSection.offsetTop - navHeight + 10;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
     
   </script>
 </body>
