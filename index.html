@@ -129,7 +129,7 @@
             <li>Enhanced debugging and RESTful API handling skills through hands-on implementation.</li>
             </ul>
           <p class="impact">
-            <strong>Impact:</strong> Strengthened understanding of backend logic and scalable design, gaining real-world experience in end-to-end software development.
+            <h4>Impact:</h4> Strengthened understanding of backend logic and scalable design, gaining real-world experience in end-to-end software development.
           </p>
         </div>
 
@@ -147,7 +147,7 @@
             <li>Collaborated on code reviews and learned practical debugging workflows.</li>
           </ul>
           <p class="impact">
-            <strong>Impact:</strong> Enhanced hands-on experience with the MERN stack and improved problem-solving abilities in full-stack development scenarios.
+            <h4>Impact:</h4> Enhanced hands-on experience with the MERN stack and improved problem-solving abilities in full-stack development scenarios.
           </p>
         </div>
 
@@ -168,12 +168,11 @@
           <div class="project-card" onclick="openModal('soil')">Soil Nutrient Analysis</div>
           <div class="project-card" onclick="openModal('crm')">CRM for Mall Management</div>
           <div class="project-card" onclick="openModal('air')">Air Pollution Monitoring</div>
-
-          <div class="project-card" onclick="openModal('recipe')">Recipe Sharing Platform</div>
+          <div class="project-card" onclick="openModal('chess-reviewer')">Chess Game Reviewer</div> <div class="project-card" onclick="openModal('recipe')">Recipe Sharing Platform</div>
           <div class="project-card" onclick="openModal('soil')">Soil Nutrient Analyser</div>
           <div class="project-card" onclick="openModal('crm')">CRM for Mall Management</div>
           <div class="project-card" onclick="openModal('air')">Air Pollution Monitoring</div>
-        </div>
+          <div class="project-card" onclick="openModal('chess-reviewer')">Chess Game Reviewer</div> </div>
       </div>
     </section>
   </div>
@@ -283,8 +282,30 @@
         </div>
       </div>
     </div>
+
+    <div id="chess-reviewer" class="modal" role="dialog" aria-modal="true">
+      <div class="modal-content" tabindex="0">
+        <span class="close" onclick="closeModal('chess-reviewer')">&times;</span>
+        <img src="assets/chess.png" alt="Chess Game Reviewer screenshot" loading="lazy" class="modal-image">
+        <h3>CHESS GAME REVIEWER</h3>
+        <div class="project-details">
+          <h4>OVERVIEW:</h4>
+          <p>A web application that takes a chess game's PGN (Portable Game Notation) and FEN(Forsyth-Edwards Notation) input and provides move-by-move analysis, identifying blunders, best moves, and positional evaluations using the Stockfish engine.</p>
+          <h4>TECH STACK:</h4>
+          <p>Python (Flask, python-chess), Stockfish Engine, HTML, CSS, JavaScript</p>
+          <h4>IMPACT:</h4>
+          <p>Demonstrated strong integration of a powerful C++ engine (Stockfish) with a Python web framework (Flask). Gained expertise in handling complex data formats (PGN and FEN) and real-time engine processing.</p>
+          <h4>KEY FEATURES:</h4>
+          <ul>
+            <li>PGN/FEN Upload and Parsing: Accepts and validates standard PGN input.</li>
+            <li>Move-by-Move Analysis: Uses Stockfish to calculate evaluation, depth, and best lines.</li>
+            <li>Visualization: Displays a clean, interactive board UI for reviewing the game.</li>
+            <li>Key Move Identification: Flags critical points like blunders, mistakes, and missed wins.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
 </body>
 
 </html>
-
