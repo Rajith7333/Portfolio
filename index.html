@@ -305,7 +305,32 @@
         </div>
       </div>
     </div>
+
+     <div id="hand-recognizer" class="modal" role="dialog" aria-modal="true">
+      <div class="modal-content" tabindex="0">
+        <span class="close" onclick="closeModal('hand-recognizer')">&times;</span>
+        <img src="assets/hgd.png" alt="Real-Time Hand Gesture Recognition System" loading="lazy" class="modal-image">
+        <h3>REAL-TIME HAND GESTURE RECOGNIZER</h3>
+        <div class="project-details">
+          <h4>OVERVIEW:</h4>
+          <p>A real-time computer vision system that uses a custom-trained Convolutional Neural Network (CNN) to recognize predefined hand gestures from a live webcam feed, leveraging MediaPipe for robust hand landmark detection.</p>
+          <h4>TECH STACK:</h4>
+          <p>Python, TensorFlow/Keras, OpenCV, MediaPipe, CNN, ImageDataGenerator</p>
+          <h4>IMPACT:</h4>
+          <p>Developed expertise in the full end-to-end pipeline of an AI application: data collection, model training (with regularization like dropout and early stopping), and real-time deployment for practical computer vision tasks.</p>
+          <h4>KEY FEATURES:</h4>
+          <ul>
+            <li>Custom Data Collection: Built a tool to generate a labeled dataset for multiple gestures using MediaPipe landmarks.</li>
+            <li>CNN Training: Implemented and trained a deep learning model with data augmentation for high generalization and accuracy.</li>
+            <li>Real-time Prediction: Deployed the trained model to predict gestures from a live webcam feed.</li>
+            <li>Overfitting Prevention: Utilized Dropout layers and Early Stopping callbacks for robust model performance.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+   
     <script src="script.js"></script>
 </body>
 
 </html>
+
