@@ -202,3 +202,79 @@ if (backToTopBtn) {
         });
     });
 }
+
+// ===== PROJECT SLIDER MANUAL SCROLL LOGIC =====
+const projectSlider = document.getElementById('project-slider');
+const sliderTrack = document.getElementById('slider-track');
+const slideLeftBtn = document.getElementById('slide-left');
+const slideRightBtn = document.getElementById('slide-right');
+
+const CARD_WIDTH = 400; // Estimated card width + gap (approx 400px, adjust if necessary)
+const SCROLL_DISTANCE = 430; // Amount to scroll per click (e.g., one card width + gap)
+let scrollTimeout;
+
+if (projectSlider && sliderTrack && slideLeftBtn && slideRightBtn) {
+    
+    // Function to stop the CSS animation and start manual control
+    const startManualScroll = () => {
+        sliderTrack.classList.add('no-animation');
+        clearTimeout(scrollTimeout);
+    };
+
+    // Function to check if the user is idle and resume the CSS animation
+    const resumeInfiniteScroll = () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            sliderTrack.classList.remove('no-animation');
+        }, 3000); // Resume after 3 seconds of inactivity
+    };
+
+    const scrollProjects = (direction) => {
+        startManualScroll();
+
+        // Calculate the new scroll position
+        let newScrollLeft = projectSlider.scrollLeft + (direction * SCROLL_DISTANCE);
+
+        // Calculate the maximum scroll (to handle the duplicated content for the 'infinite' effect)
+        const trackWidth = sliderTrack.scrollWidth / 2;
+        const visibleWidth = projectSlider.clientWidth;
+        
+        // This logic simulates the infinite loop:
+        // 1. If scrolling past the start (or before 0), snap to the middle clone.
+        if (direction < 0 && newScrollLeft < 0) {
+            // Find the position where the original content starts
+            const jumpPosition = trackWidth - visibleWidth;
+            // Immediate snap to the start of the original (middle) content
+            projectSlider.scrollLeft = jumpPosition; 
+            // Calculate the actual target scroll position from there
+            newScrollLeft = projectSlider.scrollLeft + (direction * SCROLL_DISTANCE);
+        }
+        // 2. If scrolling past the end (of the original content), snap to the start clone.
+        if (direction > 0 && newScrollLeft >= trackWidth) {
+            // Immediate snap back to the start of the cloned content (scroll position 0)
+            projectSlider.scrollLeft = 0;
+            // Calculate the actual target scroll position from there
+            newScrollLeft = projectSlider.scrollLeft + (direction * SCROLL_DISTANCE);
+        }
+        
+        // Perform the smooth scroll
+        projectSlider.scrollTo({
+            left: newScrollLeft,
+            behavior: 'smooth'
+        });
+
+        resumeInfiniteScroll();
+    };
+
+    // Attach event listeners to buttons
+    slideLeftBtn.addEventListener('click', () => scrollProjects(-1)); // Scroll left
+    slideRightBtn.addEventListener('click', () => scrollProjects(1));  // Scroll right
+    
+    // Initial setup: Center the slider to show the middle section (original cards)
+    window.addEventListener('load', () => {
+        const trackWidth = sliderTrack.scrollWidth / 2;
+        const visibleWidth = projectSlider.clientWidth;
+        // Start scroll position roughly in the middle, adjusted for one card width for a better starting view
+        projectSlider.scrollLeft = trackWidth - (visibleWidth / 2) - CARD_WIDTH; 
+    });
+}
