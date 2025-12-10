@@ -525,10 +525,18 @@ a, button, .close, #theme-toggle, .project-card, .skill-card {
 /* ===============================
     PROJECTS SECTION
 =============================== */
+
+/* NEW: Wrapper for slider and buttons (from previous step) */
+.project-slider-controls {
+  position: relative; /* Context for absolute buttons */
+}
+
 .project-slider {
   overflow: hidden;
   position: relative;
   margin-top: 20px;
+  /* Ensure the slider content is above the buttons, but the buttons are on top of the cards */
+  z-index: 10; 
 }
 
 .slider-track {
@@ -579,6 +587,58 @@ a, button, .close, #theme-toggle, .project-card, .skill-card {
 }
 
 .project-card:hover::before { opacity: 0.15; }
+
+/* NEW STYLES FOR MANUAL SLIDER BUTTONS */
+
+.slider-button-wrapper {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 0;
+  right: 0;
+  transform: translateY(-50%); /* Fine-tune vertical centering */
+  display: flex;
+  justify-content: space-between; /* Push buttons to edges */
+  /* REMOVED PADDING: This ensures buttons align flush with the wrapper edges for perfect symmetry */
+  /* padding: 0 15px; */
+  z-index: 50; /* Ensure buttons are above the slider track */
+  pointer-events: none; /* Allow mouse events (clicks) to pass through the wrapper */
+  width: 100%;
+}
+
+.slider-button-wrapper button {
+  background: var(--accent);
+  color: var(--text-light);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+  animation: pulseGlow 1.5s infinite alternate; 
+  
+  /* Re-enable clicks specifically on the button elements */
+  pointer-events: all; 
+  /* The large negative margin pushes them far out, but the lack of padding now guarantees symmetry */
+  margin: 0 -50px; 
+}
+
+.slider-button-wrapper button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--accent);
+}
+
+.slider-button-wrapper button:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease-out;
+}
+
+/* Class to stop the animation via JS (Kept for manual scroll) */
+.slider-track.no-animation {
+  animation: none !important;
+  transition: transform 0.6s ease-out; /* Add transition for manual scroll smoothness */
+}
 
 
 /* ===============================
